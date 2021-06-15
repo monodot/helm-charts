@@ -1,6 +1,6 @@
 apiVersion: v2
 name: default
-description: The default Helm chart for Kubernetes
+description: The default chart that Helm creates
 
 # A chart can be either an 'application' or a 'library' chart.
 #
