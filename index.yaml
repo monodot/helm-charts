@@ -11,4 +11,15 @@ entries:
     urls:
     - https://github.com/monodot/helm-charts/releases/download/default-0.1.1/default-0.1.1.tgz
     version: 0.1.1
-generated: "2021-06-15T15:30:38.262606223Z"
+  tetris:
+  - apiVersion: v2
+    appVersion: 0.5.0
+    created: "2021-06-16T12:18:34.38241687Z"
+    description: Tetris Game (by bsord)
+    digest: 85641515fd036f7f15340df58e749ccae29b8cb4cfc90809465c0977b8644aad
+    name: tetris
+    type: application
+    urls:
+    - https://github.com/monodot/helm-charts/releases/download/tetris-0.1.0/tetris-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-06-16T12:18:34.382421471Z"
