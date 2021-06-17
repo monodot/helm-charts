@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "todolist.fullname" . }}-mongo
+  labels:
+    app.kubernetes.io/name: mongo
+    app.kubernetes.io/instance: {{ include "todolist.fullname" . }}-mongo
+    app.kubernetes.io/component: database
+    app.kubernetes.io/part-of: {{ include "todolist.fullname" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "todolist.fullname" . }}-mongo
+  template:
+    metadata:
+      labels:
+        app: {{ include "todolist.fullname" . }}-mongo
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: mongo
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.mongo.image.repository }}:{{ .Values.mongo.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.mongo.image.pullPolicy }}
+          ports:
+            - containerPort: 27017
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: configdb
+              mountPath: /data/configdb
+            - name: db
+              mountPath: /data/db
+      volumes:
+        - name: configdb
+          emptyDir: {}
+        - name: db
+          emptyDir: {}
