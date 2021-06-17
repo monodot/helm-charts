@@ -22,4 +22,15 @@ entries:
     urls:
     - https://github.com/monodot/helm-charts/releases/download/tetris-0.1.0/tetris-0.1.0.tgz
     version: 0.1.0
-generated: "2021-06-16T12:18:34.382421471Z"
+  todolist:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-06-17T18:44:38.811396022Z"
+    description: Todolist Application from rht-labs/springdo
+    digest: 72e5befc0fc26e49ba692cc64c7b5509c339f2ea6724b1c91126438f0c2a3795
+    name: todolist
+    type: application
+    urls:
+    - https://github.com/monodot/helm-charts/releases/download/todolist-0.1.0/todolist-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-06-17T18:44:38.811409123Z"
